@@ -1,5 +1,6 @@
-#!/usr/bin/sh
+#!/bin/sh
 
+WKS="/home/root/c9wks"  #Workspace path
 
 function install_packages()
 {
@@ -66,7 +67,9 @@ function install_packages()
     ./scripts/install-sdk.sh
     cd ..
 
-    mkdir /home/root/c9wks
+    if [ ! -d $WKS ];then
+        mkdir $WKS
+    fi
     
     echo "Installing pylint "
     wget http://peak.telecommunity.com/dist/ez_setup.py
@@ -98,7 +101,7 @@ function start()
     if [ -d "c9sdk" ];then
         cd c9sdk
         # Start the server
-        ./server.js -p 8080 -l 0.0.0.0 -a : -w /home/root/c9wks
+        ./server.js -p 8080 -l 0.0.0.0 -a : -w $WKS
     else
         echo "Please run this script with install option first"
     fi

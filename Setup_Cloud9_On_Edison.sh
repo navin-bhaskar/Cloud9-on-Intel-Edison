@@ -80,7 +80,6 @@ function install_packages()
     
     case $resp in
         [Nn]* ) return ;;
-        * ) return ;;
     esac 
     
     opkg install kernel-dev

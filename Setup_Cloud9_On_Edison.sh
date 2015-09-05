@@ -1,6 +1,9 @@
 #!/bin/sh
 
-WKS="/home/root/c9wks"  #Workspace path
+WKS="/home/root/c9wks"  # Workspace path
+USR_NAME=""         # Specify the user name here
+PSWD=""           # Specify pass word here
+
 
 function install_packages()
 {
@@ -100,7 +103,7 @@ function start()
     if [ -d "c9sdk" ];then
         cd c9sdk
         # Start the server
-        ./server.js -p 8080 -l 0.0.0.0 -a : -w $WKS
+        ./server.js -p 8080 -l 0.0.0.0 -a $USR_NAME:$PSWD -w $WKS
     else
         echo "Please run this script with install option first"
     fi

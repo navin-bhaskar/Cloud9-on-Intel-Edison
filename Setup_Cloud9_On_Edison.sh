@@ -44,8 +44,8 @@ function install_packages()
     export LD_LIBRARY_PATH
 
     echo "Installing libevent"
-    curl -L -O "http://downloads.sourceforge.net/project/levent/libevent/libevent-2.0/libevent-2.0.22-stable.tar.gz?r=http%3A%2F%2Flibevent.org%2F&ts=1440126354&use_mirror=netassist"
-    tar -zxvf libevent-2.0.22-stable.tar.gz*
+    wget https://github.com/libevent/libevent/releases/download/release-2.0.22-stable/libevent-2.0.22-stable.tar.gz
+    tar -zxvf libevent-2.0.22-stable.tar.gz
     cd libevent-2.0.22-stable
     sh autogen.sh
     ./configure
